@@ -1,0 +1,65 @@
+{
+  "contract_name": "DynamicCeiling",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "currentIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "curves",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "name": "limit",
+          "type": "uint256"
+        },
+        {
+          "name": "slopeFactor",
+          "type": "uint256"
+        },
+        {
+          "name": "collectMinimum",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentIndex",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "revealedCurves",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1502682220121
+}
