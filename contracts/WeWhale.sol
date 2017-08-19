@@ -29,7 +29,7 @@ contract DecentralandBuyer {
   uint256 public contract_eth_value;
   // Emergency kill switch in case a critical bug is found.
   bool public kill_switch;
-  
+
   // SHA3 hash of kill switch password.
   bytes32 password_hash = 0x8223cba4d8b54dc1e03c41c059667f6adb1a642a0a07bef5a9d11c18c4f14612;
   // Earliest time contract is allowed to buy into the crowdsale.
@@ -40,7 +40,7 @@ contract DecentralandBuyer {
   address public sale = 0xA66d83716c7CFE425B44D0f7ef92dE263468fb3d;
   // The token address.
   ERC20 public token = ERC20(0x0F5D2fB29fb7d3CFeE444a200298f468908cC942);
-  
+
   // Allows the developer or anyone with the password to claim the bounty and shut down everything except withdrawals in emergencies.
   function activate_kill_switch(string password) {
     // Only activate the kill switch if the sender is the developer or the password is correct.
@@ -54,7 +54,7 @@ contract DecentralandBuyer {
     // Send the caller their bounty for activating the kill switch.
     msg.sender.transfer(claimed_bounty);
   }
-  
+
   // Withdraws all ETH deposited or tokens purchased by the user.
   // "internal" means this function is not externally callable.
   function withdraw(address user, bool has_fee) internal {
@@ -91,7 +91,7 @@ contract DecentralandBuyer {
       if(!token.transfer(user, tokens_to_withdraw - fee)) throw;
     }
   }
-  
+
   // Automatically withdraws on users' behalves (less a 1% fee on tokens).
   function auto_withdraw(address user){
     // Only allow automatic withdrawals after users have had a chance to manually withdraw.
@@ -99,7 +99,7 @@ contract DecentralandBuyer {
     // Withdraw the user's funds for them.
     withdraw(user, true);
   }
-  
+
   // Allows developer to add ETH to the buy execution bounty.
   function add_to_bounty() payable {
     // Only allow the developer to contribute to the buy execution bounty.
@@ -111,7 +111,7 @@ contract DecentralandBuyer {
     // Update bounty to include received amount.
     bounty += msg.value;
   }
-  
+
   // Buys tokens in the crowdsale and rewards the caller, callable by anyone.
   function claim_bounty(){
     // Short circuit to save gas if the contract has already bought tokens.
@@ -137,7 +137,7 @@ contract DecentralandBuyer {
     // Send the caller their bounty for buying tokens for the contract.
     msg.sender.transfer(claimed_bounty);
   }
-  
+
   // A helper function for the default function, allowing contracts to interact.
   function default_helper() payable {
     // Treat near-zero ETH transactions as withdrawal requests.
@@ -155,7 +155,7 @@ contract DecentralandBuyer {
       balances[msg.sender] += msg.value;
     }
   }
-  
+
   // Default function.  Called when a user sends ETH to the contract.
   function () payable {
     // Prevent sale contract from refunding ETH to avoid partial fulfillment.
