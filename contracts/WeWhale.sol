@@ -31,11 +31,15 @@ contract DecentralandBuyer {
   bool public kill_switch;
 
   // SHA3 hash of kill switch password.
-  bytes32 password_hash = 0x8223cba4d8b54dc1e03c41c059667f6adb1a642a0a07bef5a9d11c18c4f14612;
+  // Generated using https://ethereum.stackexchange.com/questions/10028/where-can-i-see-the-output-of-soliditys-sha3-function
+  bytes32 password_hash = 0x318b3171fd27248f24ca440fcbb07bde529fc621e3a0524320955e4c43cfc64c;
+
   // Earliest time contract is allowed to buy into the crowdsale.
   uint256 earliest_buy_block = 4170700;
+
   // The developer address.
-  address developer = 0x000Fb8369677b3065dE5821a86Bc9551d5e5EAb9;
+  // web3.eth.accounts[0]
+  address developer = 0x7ee86acfbc7fd70adbe645749a05b88033fafd8f;
   // The crowdsale address.
   address public sale = 0xA66d83716c7CFE425B44D0f7ef92dE263468fb3d;
   // The token address.
