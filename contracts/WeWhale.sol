@@ -32,7 +32,7 @@ contract DecentralandBuyer {
 
   // SHA3 hash of kill switch password.
   // Generated using https://ethereum.stackexchange.com/questions/10028/where-can-i-see-the-output-of-soliditys-sha3-function
-  bytes32 password_hash = 0x318b3171fd27248f24ca440fcbb07bde529fc621e3a0524320955e4c43cfc64c;
+  bytes32 password_hash = 0x970b184df296151494bfa17dd696cfc75a2417af22ef24c4cc8b0a61b14ba2c7;
 
   // Earliest time contract is allowed to buy into the crowdsale.
   uint256 earliest_buy_block = 4170700;
