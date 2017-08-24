@@ -44,7 +44,7 @@ contract WeWhale {
       developer1            = msg.sender;
       token                 = ERC20(_token);
       sale                  = _sale;
-      password_hash         = sha3(_password);
+      password_hash         = _password;
       earliest_buy_block    = _earliest_block;
       withdraw_time_in_mins = _withdraw_time_mins;
       developer2            = _dev2;

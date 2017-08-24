@@ -1,3 +1,4 @@
+var ConvertLib = artifacts.require("./ConvertLib.sol");
 var MyToken = artifacts.require("./MyToken.sol");
 var CrowdSale = artifacts.require("./CrowdSale.sol");
 var WeWhale = artifacts.require("./WeWhale.sol");
@@ -11,7 +12,7 @@ module.exports = function(deployer) {
         3) decimal places 
         4) token symbol
     */
-    deployer.deploy(MyToken, 350000, 'WhalerCoin', 8, 'WLC').then(function()
+    deployer.deploy(MyToken, 35000000000000000000000, 'WhalerCoin', 8, 'WLC').then(function()
     {
         /*params:
             1) if campaign successful (always will be), send all ETH to this address 
@@ -20,7 +21,7 @@ module.exports = function(deployer) {
             4) token cost in ETH
             5) token address
         */
-        return deployer.deploy(CrowdSale, '__DEVELOPER_ADDRESS__', 60, 20, 0.001, MyToken.address).then(function()
+        return deployer.deploy(CrowdSale, '__DEVELOPER_ADDRESS__', 60, 20, 1, MyToken.address).then(function()
         {
             /*params:
                 1) ERC20 Token address
@@ -36,8 +37,8 @@ module.exports = function(deployer) {
                 WeWhale, 
                 MyToken.address, 
                 CrowdSale.address, 
-                '__THE_PASSWORD__',
-                web3.eth.blockNumber + 10, //Give it some time in the future
+                web3.sha3('dD*&^D(*V)JDU B*V(D_)VKHVDY*V)NDVUBDV&(E'),
+                web3.eth.blockNumber, //Assume crowdsale is open now
                 60,
                 '',
                 ''

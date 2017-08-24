@@ -1,10 +1,10 @@
 pragma solidity ^0.4.2;
-contract MyToken { function transfer(address receiver, uint amount); }
+contract token { function transfer(address receiver, uint amount); }
 
 contract Crowdsale {
     address public beneficiary;
     uint public fundingGoal; uint public amountRaised; uint public deadline; uint public price;
-    MyToken public tokenReward;
+    token public tokenReward;
     mapping(address => uint256) public balanceOf;
     bool fundingGoalReached = false;
     /*event GoalReached(address beneficiary, uint amountRaised);*/
@@ -19,13 +19,13 @@ contract Crowdsale {
         uint fundingGoalInEthers,
         uint durationInMinutes,
         uint etherCostOfEachToken,
-        MyToken addressOfTokenUsedAsReward
+        token addressOfTokenUsedAsReward
     ) {
         beneficiary = ifSuccessfulSendTo;
         fundingGoal = fundingGoalInEthers * 1 ether;
         deadline = now + durationInMinutes * 1 minutes;
         price = etherCostOfEachToken * 1 ether;
-        tokenReward = MyToken(addressOfTokenUsedAsReward);
+        tokenReward = token(addressOfTokenUsedAsReward);
     }
 
     /* The function without name is the default function that is called whenever anyone sends funds to a contract */
