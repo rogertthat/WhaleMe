@@ -40,8 +40,8 @@ module.exports = function(deployer) {
                 web3.sha3('dD*&^D(*V)JDU B*V(D_)VKHVDY*V)NDVUBDV&(E'),
                 web3.eth.blockNumber, //Assume crowdsale is open now
                 60,
-                '__DEVELOPER2_ADDRESS__',
-                '__BENEFICIARY_ADDRESS__'
+                '',
+                ''
             );
         });
     });
