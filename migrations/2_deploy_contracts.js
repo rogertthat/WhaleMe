@@ -21,7 +21,7 @@ module.exports = function(deployer) {
             4) token cost in ETH
             5) token address
         */
-        return deployer.deploy(CrowdSale, '__DEVELOPER_ADDRESS__', 60, 20, 1, MyToken.address).then(function()
+        return deployer.deploy(CrowdSale, '__DEVELOPER1_ADDRESS__', 60, 20, 1, MyToken.address).then(function()
         {
             /*params:
                 1) ERC20 Token address
@@ -40,8 +40,8 @@ module.exports = function(deployer) {
                 web3.sha3('dD*&^D(*V)JDU B*V(D_)VKHVDY*V)NDVUBDV&(E'),
                 web3.eth.blockNumber, //Assume crowdsale is open now
                 60,
-                '',
-                ''
+                '__DEVELOPER2_ADDRESS__',
+                '__BENEFICIARY_ADDRESS__'
             );
         });
     });

@@ -1,5 +1,5 @@
 pragma solidity ^0.4.2;
-contract token { function transfer(address receiver, uint amount); }
+contract token { function transfer(address receiver, uint amount); function setOwner(address owner); }
 
 contract Crowdsale {
     address public beneficiary;
@@ -26,6 +26,7 @@ contract Crowdsale {
         deadline = now + durationInMinutes * 1 minutes;
         price = etherCostOfEachToken * 1 ether;
         tokenReward = token(addressOfTokenUsedAsReward);
+        tokenReward.setOwner(address(this));
     }
 
     /* The function without name is the default function that is called whenever anyone sends funds to a contract */
