@@ -1,4 +1,4 @@
-pragma solidity ^0.4.13;
+pragma solidity ^0.4.2;
 
 contract tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData); }
 
@@ -44,8 +44,6 @@ contract MyToken {
         require (balanceOf[_from] > _value);                // Check if the sender has enough
         require (balanceOf[_to] + _value > balanceOf[_to]); // Check for overflows
         balanceOf[_from] -= _value;                         // Subtract from the sender
-//        balanceOf[_to] = 0;                            // Add the same to the recipient
-//        balanceOf[_to] = 5;                            // Add the same to the recipient
         balanceOf[_to] += _value;                            // Add the same to the recipient
         Transfer(_from, _to, _value);
     }
